@@ -11,6 +11,7 @@ export default function RET({ name, control, lable, defaultValue = "" }) {
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
+          apiKey='umirz6rtt084l3vyd63648l1j3n1yofg42durd9dst2e38v6'
             initialValue={defaultValue}
             init={{
               initialValue: defaultValue,
@@ -39,7 +40,7 @@ export default function RET({ name, control, lable, defaultValue = "" }) {
                 "anchor",
               ],
               toolbar:
-                "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
+                "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
               content_style:
                 "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}
