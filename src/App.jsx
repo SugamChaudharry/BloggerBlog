@@ -26,10 +26,10 @@ function App() {
     <div className='bg-slate-500 min-h-screen flex flex-wrap content-between'>
       <div className='w-full block'>
         <Header />
-        <main>
-          <Outlet/>todo
+        <main className='w-full'>
+          <Outlet/>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   ) : null

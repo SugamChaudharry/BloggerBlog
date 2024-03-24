@@ -31,7 +31,6 @@ export default function Post() {
             }
         });
     };
-
     return post ? (
         <div className="py-8">
             <Container>

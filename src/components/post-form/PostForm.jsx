@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react'
 import { useForm } from 'react-hook-form'
-import {Button, Input, Select, RTE} from "../index"
+import {Input, Select, RTE, Button} from "../index"
 import appwriteService from "../../appwrite/config"
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -16,10 +16,10 @@ function PostForm({post}) {
       },
   })
   const navigate = useNavigate()
-  const userData = useSelector(state => state.user)
+  const userData = useSelector(state => state.auth.userData)
   const submit = async (data) => {
     if (post) {
-      const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+      const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
 
       if (file) {
         appwriteService.deleteFile(post.featuredImage)
@@ -33,13 +33,12 @@ function PostForm({post}) {
       }
     }else{
       const file = await appwriteService.uploadFile(data.image[0])
-
       if (file) {
         const fileId = file.$id
         data.featuredImage = fileId
         const dbPost = await appwriteService.createPost({
           ...data,
-          userId: userData.$id,
+          userId: userData.$id
         })
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`)
@@ -69,7 +68,7 @@ function PostForm({post}) {
   }, [watch, slugTransform, setValue, ])
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap ">
         <div className="w-2/3 px-2">
             <Input
                 label="Title :"
@@ -111,7 +110,7 @@ function PostForm({post}) {
                 className="mb-4"
                 {...register("status", { required: true })}
             />
-            <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+            <Button type="submit" bgColor={post ? "bg-green-500" : "bg-red-500"} className="w-full">
                 {post ? "Update" : "Submit"}
             </Button>
         </div>

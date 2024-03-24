@@ -29,7 +29,7 @@ export class Service {
                 }
             )
         } catch (error) {
-            console.log("Error creating post", error);
+            console.log("Appwrite serive :: createPost :: error", error);
         }
     }
     
@@ -48,7 +48,7 @@ export class Service {
             )
                 
         } catch (error) {
-            console.log("Error updating post", error);
+            console.log("Appwrite serive :: updatePost :: error", error);
         }
     }
 
@@ -61,21 +61,21 @@ export class Service {
             )
             return true;
         } catch (error) {
-            console.log("Error updating post", error);
+            console.log("Appwrite serive :: deletePost :: error", error);
             return false;
         }
     }
 
     async getPost (slug){
         try {
-            return await this.databases.deleteDocument(
+            return await this.databases.getDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug
             )
             
         } catch (error) {
-            console.log("Error updating post", error);
+            console.log("Appwrite serive :: getPost :: error", error);
             return false;
         }
     }
@@ -89,7 +89,7 @@ export class Service {
             )
             
         } catch (error) {
-            console.log("Error getting posts", error);
+            console.log("Appwrite serive :: getPosts :: error", error);
             return false;
         }
     }
@@ -104,7 +104,7 @@ export class Service {
                 file
             );
         } catch (error) {
-            console.log("Error uploading file", error);
+            console.log("Appwrite serive :: uploadFile :: error", error);
             return false;
         }
     }
@@ -117,24 +117,16 @@ export class Service {
             );
             return true;
         } catch (error) {
-            console.log("Error deleting file", error);
+            console.log("Appwrite serive :: deleteFile :: error", error);
             return false;
         }
     }
 
-    getFilePreviewURL(fileID){
+    getFilePreview(fileID){
         return this.bucket.getFilePreview(
             conf.appwriteBucketId,
             fileID
         );
-    }
-
-    deleteFile(fileID){
-        return this.bucket.deleteFile(
-            conf.appwriteBucketId,
-            fileID
-        );
-
     }
 }
 

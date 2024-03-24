@@ -19,14 +19,14 @@ function Home() {
             <div className='w-full py-8' >
                 <Container>
                     <div className='flex justify-center items-center h-64'>
-                        <p className='text-2xl'> No Posts... </p>
+                        <p className='text-2xl'> You are not login.. </p>
                     </div>
                 </Container>
             </div>
         )
     }
     return (
-        <div className='w-full py-8' >
+        <div className='w-full py-8 bg-black' >
             <Container>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                     {posts.map((post) => (
