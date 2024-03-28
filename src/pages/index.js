@@ -5,6 +5,7 @@ import AllPosts from './AllPosts.jsx'
 import AddPost from './AddPost.jsx'
 import EditPost from './EditPost.jsx'
 import Post from './Post.jsx'
+import MyPosts from './MyPosts.jsx'
 
 export {
     Home,
@@ -13,5 +14,6 @@ export {
     AllPosts,
     AddPost,
     EditPost,
-    Post
+    Post,
+    MyPosts
 }

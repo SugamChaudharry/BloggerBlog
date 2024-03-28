@@ -14,19 +14,19 @@ function Home() {
         })
     }, [])
     
-    if (posts.length === 0) {
+    if (posts.length === 0 ) {
         return (
             <div className='w-full py-8' >
                 <Container>
-                    <div className='flex justify-center items-center h-64'>
-                        <p className='text-2xl'> You are not login.. </p>
+                    <div className='w-full flex justify-center items-center'>
+                        <img src="https://i.imgflip.com/8krot5.jpg" />
                     </div>
                 </Container>
             </div>
         )
     }
     return (
-        <div className='w-full py-8 bg-black' >
+        <div className='w-full py-8 ' >
             <Container>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                     {posts.map((post) => (

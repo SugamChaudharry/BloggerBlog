@@ -8,18 +8,13 @@ function PostCard({
     featuredImage,
 }) {
   return (
-    <Link to = {`/post/${$id}`}>
-        <div className='w-80 shadow-lg rounded-lg overflow-hidden'>
-            <div className='w-full justify-center mb-4'>
-                <img src={appwriteService.getFilePreview(featuredImage)} alt={title}
-                className='rounded-xl' />
+    <Link to={`/post/${$id}`} className='block w-80  shadow-lg rounded-lg overflow-hidden bg-slate-500'>
+    <div className='w-full mb-4'>
+        <img src={appwriteService.getFilePreview(featuredImage)} alt={title} className='rounded-xl  w-80 overflow-hidden' />
+    </div>
+    <h2 className='text-xl font-bold'>{title}</h2>
+</Link>
 
-            </div>
-            <h2
-            className='text-xl font-bold'
-            >{title}</h2>
-        </div>
-    </Link>
   )
 }
 
