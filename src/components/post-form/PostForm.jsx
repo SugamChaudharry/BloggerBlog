@@ -10,6 +10,7 @@ function PostForm({post}) {
       defaultValues: {
           title: post?.title || '',
           content: post?.content || '',
+          discription: post?.discription || '',
           slug: post?.slug || '',
           status: post?.status || 'active',
           
@@ -52,7 +53,7 @@ function PostForm({post}) {
       return value
       .trim()
       .toLowerCase()
-      .replace(/[^a-zA-Z\d\s]+/g, '')
+      .replace(/[^a-zA-Z\d]+/g, '')
     }
     return ""
   }, [])
@@ -75,15 +76,15 @@ function PostForm({post}) {
                 placeholder="Title"
                 className="mb-4"
                 {...register("title", { required: true })}
+                onInput={(e) => {
+                  setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
+              }}
             />
             <Input
-                label="Slug :"
-                placeholder="Slug"
+                label="discription :"
+                placeholder="discription"
                 className="mb-4"
-                {...register("slug", { required: true })}
-                onInput={(e) => {
-                    setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
-                }}
+                {...register("discription", { required: true })}                
             />
             <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
         </div>
