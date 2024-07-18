@@ -30,7 +30,7 @@ function Signup() {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ml-16">
       {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-          <form className="card-body">
+          <form onSubmit={handleSubmit(createAc)} className="card-body">
             <div className="form-control">
               <Input
                 label="Full Name"
