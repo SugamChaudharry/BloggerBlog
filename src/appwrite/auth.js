@@ -23,6 +23,7 @@ export class AuthService {
                 return userAccount;
             }
         } catch (error) {
+            console.log("error while creating user :", error);
             throw error;
         }
     }
@@ -39,7 +40,7 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            console.log("Error getting current user", error);
+            console.log("Error while getting current user", error);
         }
 
         return null;
