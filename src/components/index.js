@@ -3,10 +3,8 @@ import Footer from "./Footer/Footer.jsx";
 import Container from "./Container/container.jsx";
 import Logo from "./Logo.jsx";
 import LogoutBtn from "./Header/LogoutBtn.jsx";
-import RTE from "./RET.jsx"
 import Signup from "./Signup.jsx";
 import Login from "./Login.jsx";
-import PostForm from "./post-form/PostForm.jsx";
 import PostCard from "./PostCard.jsx";
 import AuthLayout from "./AuthLayout.jsx";
 import Button from "./Button.jsx";
@@ -19,10 +17,8 @@ export{
     Container,
     Logo,
     LogoutBtn,
-    RTE,
     Signup,
     Login,
-    PostForm,
     PostCard,
     AuthLayout,
     Button,
