@@ -4,6 +4,7 @@ import { login as authLogin } from '../store/authSlice';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
+import authService from '../appwrite/auth';
 
 const Input = React.forwardRef(({ className, label, error, ...props }, ref) => (
   <input
