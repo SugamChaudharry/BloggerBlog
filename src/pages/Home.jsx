@@ -77,9 +77,12 @@ function Home() {
           </p>
 
           {userStatus ? (
-            <button className='bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg'>
-              create blog
-            </button>
+            <Link
+              to={'/create-blog'}
+              className='bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg inline-flex items-center'
+            >
+              Create Blogs
+            </Link>
           ) : (
             <Link
               to={'/signup'}
