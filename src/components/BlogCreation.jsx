@@ -115,7 +115,7 @@ const ImageUpload = ({
 );
 
 // New CategorySelector Component
-const CategorySelector = ({ register, setValue, watch }) => {
+const CategorySelector = ({ register, errors, setValue, watch }) => {
   const [isAdding, setIsAdding] = useState(false);
   const [newCategory, setNewCategory] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
@@ -315,6 +315,7 @@ const CategorySelector = ({ register, setValue, watch }) => {
           required: 'At least one category is required',
         })}
       />
+      {errors.categories && <p style={{ color: 'red' }}>{errors.categories.message}</p>}
     </div>
   );
 };
@@ -355,7 +356,7 @@ const FormFields = ({ register, errors, setValue, slugTransform, watch }) => (
       )}
     </div>
 
-    <CategorySelector register={register} setValue={setValue} watch={watch} />
+    <CategorySelector errors={errors} register={register} setValue={setValue} watch={watch} />
   </div>
 );
 
@@ -391,7 +392,6 @@ const Footer = ({
             <button
               type='button'
               onClick={() => {
-                setValue('PublishStatus', true);
                 handleSubmit(submit)();
               }}
               className='flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm'
@@ -566,9 +566,8 @@ const BlogCreation = ({ onBack, post }) => {
       className='bg-gradient-to-tr min-h-screen text-white from-gray-800 to-gray-900 flex overflow-x-hidden'
     >
       <div
-        className={`${
-          isSidebarOpen ? 'w-full sm:w-[30%]' : 'w-0'
-        } border-r border-gray-700 flex flex-col transition-all duration-300 ease-in-out relative`}
+        className={`${isSidebarOpen ? 'w-full sm:w-[30%]' : 'w-0'
+          } border-r border-gray-700 flex flex-col transition-all duration-300 ease-in-out relative`}
       >
         <SidebarToggle
           isSidebarOpen={isSidebarOpen}

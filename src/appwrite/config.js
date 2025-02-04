@@ -28,12 +28,11 @@ export class Service {
       alert("blog should not we empty");
       return;
     }
-    console.log(categories);
     try {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        slug,
+        ID.unique(),
         {
           title,
           description,
@@ -51,7 +50,15 @@ export class Service {
 
   async updatePost(
     slug,
-    { title, description, content, featuredImage, PublishStatus },
+    {
+      title,
+      description,
+      categories,
+      content,
+      featuredImage,
+      PublishStatus,
+      userId,
+    },
   ) {
     try {
       return await this.databases.updateDocument(
@@ -61,9 +68,11 @@ export class Service {
         {
           title,
           description,
+          categories,
           content,
           featuredImage,
           PublishStatus,
+          userId,
         },
       );
     } catch (error) {
@@ -111,7 +120,7 @@ export class Service {
     }
   }
 
-  async getUserPosts({userId}) {
+  async getUserPosts({ userId }) {
     try {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
