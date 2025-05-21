@@ -100,7 +100,7 @@ const Explore = () => {
               <Link key={blog.$id} to={`/blog/${blog.$id}`}>
                 <article className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-700">
                   <img
-                    src={appwriteService.getFilePreview(blog.featuredImage)}
+                    src={appwriteService.getFileURL(blog.featuredImage)}
                     alt={blog.title}
                     className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
                   />

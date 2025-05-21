@@ -34,7 +34,7 @@ const BlogPost = () => {
         {post.featuredImage && (
           <div className="w-full h-64 relative overflow-hidden">
             <img
-              src={appwriteService.getFilePreview(post.featuredImage)}
+              src={appwriteService.getFileURL(post.featuredImage)}
               alt={post.title}
               className="w-full h-full object-cover"
             />

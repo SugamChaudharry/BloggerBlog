@@ -485,7 +485,7 @@ const BlogCreation = ({ onBack, post }) => {
 
   const [selectedImage, setSelectedImage] = useState(
     post?.featuredImage
-      ? appwriteService.getFilePreview(post.featuredImage)
+      ? appwriteService.getFileURL(post.featuredImage)
       : null,
   );
   const [fileName, setFileName] = useState(post?.featuredImage || '');

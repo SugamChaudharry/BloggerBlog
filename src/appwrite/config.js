@@ -16,7 +16,6 @@ export class Service {
 
   async createPost({
     title,
-    slug,
     description,
     categories,
     content,
@@ -156,8 +155,8 @@ export class Service {
     }
   }
 
-  getFilePreview(fileID) {
-    return this.bucket.getFilePreview(conf.appwriteBucketId, fileID);
+  getFileURL(fileID) {
+    return this.bucket.getFileView(conf.appwriteBucketId, fileID);
   }
 }
 
