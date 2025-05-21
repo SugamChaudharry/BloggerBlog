@@ -16,7 +16,7 @@ import {
   Signup,
   Profile,
 } from "./pages/index.js";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 const router = createBrowserRouter([
   {
     path: "/",
